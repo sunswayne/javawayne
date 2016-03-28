@@ -1,10 +1,10 @@
 ### Site info.
 title: Wayne.Sun
-tagline: 万物之中，希望至美；至美之物，永不凋零。
-author: Robin Wen
+tagline: Java Programmer, Writer
+author: Wayne Sun
 email: sunswayne@gmail.com 
-description: Robin Wen, 自由主义者，爱好音乐和文学。这个站点是我求真思考的场所，希望能对其他人有点用。当然，也会发一点关于互联网的文章。本站基于 GitHub Pages，域名买自 GoDaddy，发文章改博客只需要 Vim 和 Git，尽可能把写作成本降到最低。如您所知，本人发布的文章与评论内容仅代表本人观点。「万物之中，希望至美；至美之物，永不凋零。」太阳照常升起，生活依然继续。这里不仅仅是一个博客。
-keywords: "Reading, Muisc, 阅读, 音乐, 钢琴, 文学, 互联网, 科技"
+description: Wayne Sun, a lonely writer.
+keywords: "Coding"
 #url: "http://sunswayne.com" # The base hostname & protocol for your site
 url: "https://sunswayne.com" # The base hostname & protocol for your site
 enforce_ssl: "sunswayne.com" # The base hostname & protocol for your site
@@ -16,8 +16,8 @@ twitter_username: sunswayne
 github_username:  sunswayne
 disqus_shortname: sunswayne
 favicon:     "/images/favicon.ico"
-aboutme: Robin Wen, Quest for Truth.
-aboutme_photo: "/images/wentasy.png"
+aboutme: Wayne Sun, Quest for Truth.
+aboutme_photo: "/images/1.png"
 google_analytics_key: UA-57297247-1
 
 ### Site settings.
