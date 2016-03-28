@@ -1,9 +1,9 @@
-Robin's Personal Blog, See at: http://dbarobin.com
+Wayne's Personal Blog, See at: http://sunswayne.com
 
-Email: dbarobinwen@gmail.com
+Email: sunswayne@gmail.com
 
 Screenshots:
 
-![Screenshots of dbarobin.com at 2015.12.03](http://dbarobin.com/images/dbarobin.com.screenshots.151203.png)
+![Screenshots of sunswayne.com at 2015.12.03](http://sunswayne.com/images/dbarobin.com.screenshots.151203.png)
 
 Powered by Jekyll based on freshman21. Thanks Lijia Yu.

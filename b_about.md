@@ -20,6 +20,6 @@ Keep in touch: LinkedIn <a href="http://www.linkedin.com/in/dbarobin" target="_b
 
 <p class="post-meta">
    <span id="busuanzi_container_page_pv">
-      By Robin Wen, Viewd <span id="busuanzi_value_page_pv"></span> times.
+      By Wayne Sun, Viewd <span id="busuanzi_value_page_pv"></span> times.
    </span>
 </p>
