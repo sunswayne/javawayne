@@ -63,24 +63,18 @@ locales:
 
 ### Blogroll info, only name can shown on the page.
 Blogroll:
+    - name: ImportNew
+      href: http://www.importnew.com/
+      title: ImportNew
     - name: 阮一峰的网络日志
       href: http://www.ruanyifeng.com/
       title: 阮一峰的网络日志
+    - name: 酷壳
+      href: http://coolshell.cn/
+      title: Ri Xu
     - name: MacTalk
       href: http://macshuo.com
       title: MacTalk
-    - name: Taosay
-      href: http://www1.taosay.net
-      title: Taosay
-    - name: Yurii
-      href: http://www.luanxiang.org/blog
-      title: Yurii
-    - name: X7
-      href: http://blog.csdn.net/dba_waterbin
-      title: X7
-    - name: Ri Xu
-      href: https://xuri.me
-      title: Ri Xu
 
 ### Build settings.
 permalink: /:year/:month/:day/:title/
