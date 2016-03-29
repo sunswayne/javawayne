@@ -63,9 +63,9 @@ locales:
 
 ### Blogroll info, only name can shown on the page.
 Blogroll:
-    - name: DBA Notes
-      href: http://dbanotes.net
-      title: DBA Notes
+    - name: 阮一峰的网络日志
+      href: http://www.ruanyifeng.com/
+      title: 阮一峰的网络日志
     - name: MacTalk
       href: http://macshuo.com
       title: MacTalk
