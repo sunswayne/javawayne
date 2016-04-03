@@ -1,10 +1,14 @@
 <div class="sidebar-module">
     <h4>{{ site.locales[site.default_locale].Categories }}</h4>
     {% for cat in site.categories %}
-        {% if cat[0] == 'mysql' %}
-            <li><a href="{{ site.baseurl }}/categories/#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">MySQL ({{ cat[1].size }})</a></li>
-        {% elsif cat[0] == 'nosql' %}
-            <li><a href="{{ site.baseurl }}/categories/#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">NoSQL ({{ cat[1].size }})</a></li>
+        {% if cat[0] == 'db' %}
+            <li><a href="https://sunswayne.com/categories/#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">DB ({{ cat[1].size }})</a></li>
+        {% elsif cat[0] == 'javase' %}
+            <li><a href="https://sunswayne.com/categories/#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">JavaSE ({{ cat[1].size }})</a></li>
+        {% elsif cat[0] == 'j2ee' %}
+            <li><a href="https://sunswayne.com/categories/#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">J2EE ({{ cat[1].size }})</a></li>
+        {% elsif cat[0] == 'swift' %}
+            <li><a href="https://sunswayne.com/categories/#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">Swift ({{ cat[1].size }})</a></li>
         {% else %}
             <li><a href="{{ site.baseurl }}/categories/#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">{{ cat[0] | capitalize}} ({{ cat[1].size }})</a></li>
        {% endif %}

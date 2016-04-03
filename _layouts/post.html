@@ -10,10 +10,14 @@ layout: default
     <p class="post-meta">
     {{ site.locales[site.default_locale].PostedInCategories }}
     {% for cat in page.categories %}
-    {% if cat == 'mysql' %}
-      <a href="{{site.baseurl}}/categories/#{{ cat }}">MySQL</a>&nbsp;
-    {% elsif cat == 'nosql' %}
-      <a href="{{site.baseurl}}/categories/#{{ cat }}">NoSQL</a>&nbsp;
+    {% if cat == 'db' %}
+      <a href="https://sunswayne.com/categories/#{{ cat }}">DB</a>&nbsp;
+    {% elsif cat == 'javase' %}
+      <a href="{{site.baseurl}}/categories/#{{ cat }}">JavaSE</a>&nbsp;
+    {% elsif cat == 'j2ee' %}
+      <a href="{{site.baseurl}}/categories/#{{ cat }}">J2EE</a>&nbsp;
+    {% elsif cat == 'swift' %}
+      <a href="{{site.baseurl}}/categories/#{{ cat }}">Swift</a>&nbsp;
     {% else %}
       <a href="{{site.baseurl}}/categories/#{{ cat }}">{{ cat | capitalize}}</a>&nbsp;
     {% endif %}
