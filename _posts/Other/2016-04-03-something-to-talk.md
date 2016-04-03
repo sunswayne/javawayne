@@ -2,9 +2,9 @@
 published: true
 author: Wayne Sun
 layout: post
-title: Test
+title: 说点什么
 category: Other
-summary: click to show detail
+summary: 我不知还要如何表达，知道无锁遵从的那一天。
 tags:
   - Other
   - DBA
