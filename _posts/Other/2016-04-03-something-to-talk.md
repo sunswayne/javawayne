@@ -5,6 +5,7 @@ layout: post
 title: hehe
 category: Other
 summary: heihei
+comments: true
 tags:
   - literature
   - article
