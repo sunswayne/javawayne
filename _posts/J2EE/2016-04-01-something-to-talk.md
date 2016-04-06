@@ -8,11 +8,11 @@ summary: 有时候突然想写点什么，就好像为了记录某件事，生�
 tags:
   - Web
   - AngularJS
-comments: false
+comments: true
 
 ---
 
 `文/孙少伟`
 
 
-有时候突然想写点什么.
+有时候突然想写点什么.dd
