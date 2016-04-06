@@ -8,7 +8,7 @@ summary: heihei
 tags:
   - literature
   - article
-comments:true
+comments: true
 ---
 
 `文/孙少伟`
