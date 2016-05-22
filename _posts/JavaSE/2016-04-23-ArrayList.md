@@ -17,7 +17,9 @@ tags:
 * ArrayList自动扩容
 * ArrayList和LinkedList对比
 
-「」
+「自动扩容」
+
+先来看一组变量声明。
 
 > 
 
@@ -42,6 +44,8 @@ transient Object[] elementData; // non-private to simplify nested class access
  */
 private int size;
 {% endhighlight %}
+
+不难看出这里声明了一个Object数组作为ArrayList的底层存储，并且固定初始容量为10，然后声明了一个记录ArrayList大小的整型变量。
 
 <!-- {% highlight java %} 
 
