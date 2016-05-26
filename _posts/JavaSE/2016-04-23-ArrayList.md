@@ -47,6 +47,8 @@ private int size;
 
 不难看出这里声明了一个Object数组作为ArrayList的底层存储，并且固定初始容量为10，然后声明了一个记录ArrayList大小的整型变量。
 
+![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
+
 <!-- {% highlight java %} 
 
 {% endhighlight %} -->
