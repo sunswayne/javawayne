@@ -43,7 +43,11 @@ private int size;
 public ArrayList() {
     this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
 }
+{% endhighlight %}
 
+第一个构造方法。
+
+{% highlight java %} 
 public ArrayList(Collection<? extends E> c) {
     elementData = c.toArray();
     if ((size = elementData.length) != 0) {
@@ -55,7 +59,11 @@ public ArrayList(Collection<? extends E> c) {
         this.elementData = EMPTY_ELEMENTDATA;
     }
 }
+{% endhighlight %}
 
+第二个构造方法。
+
+{% highlight java %} 
 public ArrayList(int initialCapacity) {
     if (initialCapacity > 0) {
         this.elementData = new Object[initialCapacity];
@@ -68,7 +76,7 @@ public ArrayList(int initialCapacity) {
 }
 {% endhighlight %}
 
-第一个构造方法，第二个，第三个。。
+第三个构造方法。
 
 然后是add方法。
 
