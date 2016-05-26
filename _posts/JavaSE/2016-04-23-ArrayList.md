@@ -42,15 +42,6 @@ public ArrayList() {
     this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
 }
 
-{% endhighlight %}
-
-{% highlight java %} 
-public boolean add(E e) {
-    ensureCapacityInternal(size + 1);  // Increments modCount!!
-    elementData[size++] = e;
-    return true;
-}
-
 public ArrayList(Collection<? extends E> c) {
     elementData = c.toArray();
     if ((size = elementData.length) != 0) {
@@ -72,6 +63,14 @@ public ArrayList(int initialCapacity) {
         throw new IllegalArgumentException("Illegal Capacity: "+
                                            initialCapacity);
     }
+}
+{% endhighlight %}
+
+{% highlight java %} 
+public boolean add(E e) {
+    ensureCapacityInternal(size + 1);  // Increments modCount!!
+    elementData[size++] = e;
+    return true;
 }
 {% endhighlight %}
 
