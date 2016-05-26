@@ -61,6 +61,8 @@ private void ensureExplicitCapacity(int minCapacity) {
 }
 {% endhighlight %}
 
+真正的逻辑处理在下面的grow方法中：
+
 {% highlight java %} 
 private void grow(int minCapacity) {
     // overflow-conscious code
