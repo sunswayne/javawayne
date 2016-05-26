@@ -213,7 +213,7 @@ blockquote{
 pre code {
   display: inline;
   max-width: initial;
-  padding-top: 30px;
+  padding: 0;
   margin: 0;
   overflow: initial;
   line-height: inherit;
@@ -235,7 +235,7 @@ pre {
 }
 
 pre>code {
-  padding: 0;
+  padding-top: 30px;
   margin: 0;
   font-size: 12px;
   word-break: normal;
