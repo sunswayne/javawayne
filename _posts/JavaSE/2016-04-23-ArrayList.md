@@ -15,8 +15,6 @@ tags:
 
 作为Java中常用的容器之一，ArrayList无疑占据了相当大的比重，也是我们学习Java以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用add()进行添加操作的时候，是否考虑过ArrayList的容量问题。当我们调用get()方法获取元素时，底层又是如何获得具体的对象值，ArrayList的使用场景与其他集合究竟有什么异同？
 
-> Resizable-array implementation of the <tt>List</tt> interface.  Implements all optional list operations, and permits all elements, including <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface, this class provides methods to manipulate the size of the array that is used internally to store the list.  (This class is roughly equivalent to <tt>Vector</tt>, except that it is unsynchronized.)
-
 我们来看一个关于集合的结构图：
 
 ![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
@@ -26,7 +24,9 @@ tags:
 - ArrayList构造方法
 - ArrayList自动扩容
 
-先来看一组变量声明。
+> Resizable-array implementation of the <tt>List</tt> interface.  Implements all optional list operations, and permits all elements, including <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface, this class provides methods to manipulate the size of the array that is used internally to store the list.  (This class is roughly equivalent to <tt>Vector</tt>, except that it is unsynchronized.)
+
+首先是一组变量声明。
 
 {% highlight java %} 
 /**
