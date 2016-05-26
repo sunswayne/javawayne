@@ -29,24 +29,8 @@ tags:
 首先是一组变量声明。
 
 {% highlight java %} 
-/**
- * Default initial capacity.
- */
 private static final int DEFAULT_CAPACITY = 10;
-
-/**
- * The array buffer into which the elements of the ArrayList are stored.
- * The capacity of the ArrayList is the length of this array buffer. Any
- * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA
- * will be expanded to DEFAULT_CAPACITY when the first element is added.
- */
 transient Object[] elementData; // non-private to simplify nested class access
-
-/**
- * The size of the ArrayList (the number of elements it contains).
- *
- * @serial
- */
 private int size;
 {% endhighlight %}
 
