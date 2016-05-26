@@ -19,7 +19,7 @@ tags:
 
 > Resizable-array implementation of the <tt>List</tt> interface.  Implements all optional list operations, and permits all elements, including <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface, this class provides methods to manipulate the size of the array that is used internally to store the list.  (This class is roughly equivalent to <tt>Vector</tt>, except that it is unsynchronized.)
 
-再看一个关于集合的结构图。正所谓闻道有先后，这里我们只看List集合，并视其为了解Collection集合的敲门砖，至于Set和Map集合下次再做讲解。
+再看一个关于集合的结构图。
 
 ![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
 
