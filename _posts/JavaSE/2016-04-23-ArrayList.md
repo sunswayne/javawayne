@@ -21,12 +21,10 @@ tags:
 
 ![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
 
-本文我们将从以下两个方面对ArrayList进行详细分析：
-
-- ArrayList构造方法
-- ArrayList自动扩容
+本文将通过阅读源代码的方式为大家展现ArrayList的内部构造和实现过程。重点关注ArrayList的构造方法和自动扩容机制。
 
 首先是一组变量声明。
+
 {% highlight java %} 
 private static final int DEFAULT_CAPACITY = 10;
 transient Object[] elementData; // non-private to simplify nested class access
