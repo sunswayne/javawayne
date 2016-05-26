@@ -14,8 +14,8 @@ tags:
 
 作为Java中常用的容器之一，ArrayList无疑占据了相当大的比重，也是我们学习Java以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用add()进行添加操作的时候，是否考虑过ArrayList的容量问题。当我们调用get()方法获取元素时，底层又是如何获得具体的对象值。ArrayList和LinkedList在性能和使用场景方面究竟有什么异同？我们将从以下两个方面对ArrayList进行详细分析：
 
-* ArrayList自动扩容
-* ArrayList和LinkedList对比
+- ArrayList自动扩容
+- ArrayList和LinkedList对比
 
 「自动扩容」
 
