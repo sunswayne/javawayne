@@ -15,6 +15,7 @@ tags:
 作为Java中常用的容器之一，ArrayList无疑占据了相当大的比重，也是我们学习Java以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用add()进行添加操作的时候，是否考虑过ArrayList的容量问题。当我们调用get()方法获取元素时，底层又是如何获得具体的对象值，ArrayList的使用场景与其他集合究竟有什么异同？
 
 我们来看一个关于集合的结构图：
+
 ![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
 
 不难看出，ArrayList和LinkedList同为接口List的实现类，而List接口又继承自顶级接口Collection。当然，实现List的实现类并非只有我们常用的ArrayList，而我们今天要说的，就是对比ArrayList以及同样实现接口List的LinkedList。
@@ -54,15 +55,7 @@ private int size;
 
 不难看出这里声明了一个Object数组作为ArrayList的底层存储，并且固定初始容量为10，然后声明了一个记录ArrayList大小的整型变量。
 
-
-
 {% highlight java %} 
-/**
- * Appends the specified element to the end of this list.
- *
- * @param e element to be appended to this list
- * @return <tt>true</tt> (as specified by {@link Collection#add})
- */
 public boolean add(E e) {
     ensureCapacityInternal(size + 1);  // Increments modCount!!
     elementData[size++] = e;
@@ -73,24 +66,16 @@ private void ensureCapacityInternal(int minCapacity) {
     if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
         minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
     }
-
     ensureExplicitCapacity(minCapacity);
 }
 
 private void ensureExplicitCapacity(int minCapacity) {
     modCount++;
-
     // overflow-conscious code
     if (minCapacity - elementData.length > 0)
         grow(minCapacity);
 }
 
-/**
- * Increases the capacity to ensure that it can hold at least the
- * number of elements specified by the minimum capacity argument.
- *
- * @param minCapacity the desired minimum capacity
- */
 private void grow(int minCapacity) {
     // overflow-conscious code
     int oldCapacity = elementData.length;
