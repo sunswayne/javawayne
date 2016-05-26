@@ -12,7 +12,7 @@ tags:
 
 `文/孙少伟`
 
-作为Java中常用的容器之一，ArrayList无疑占据了相当大的比重，也是我们学习Java以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用add()进行添加操作的时候，是否考虑过ArrayList的容量问题。当我们调用get()方法获取元素时，底层又是如何获得具体的对象值。ArrayList和LinkedList在性能和使用场景方面究竟有什么异同？
+作为Java中常用的容器之一，ArrayList无疑占据了相当大的比重，也是我们学习Java以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用add()进行添加操作的时候，是否考虑过ArrayList的容量问题。当我们调用get()方法获取元素时，底层又是如何获得具体的对象值，ArrayList的使用场景与其他集合究竟有什么异同？
 
 我们来看一个关于集合的结构图：
 ![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
@@ -21,10 +21,10 @@ tags:
 
 我们将从以下两个方面对ArrayList进行详细分析：
 
+- ArrayList构造方法
 - ArrayList自动扩容
-- ArrayList和LinkedList对比
 
-「自动扩容」
+「自动扩容」。。。
 
 先来看一组变量声明。
 
@@ -68,6 +68,7 @@ public boolean add(E e) {
     elementData[size++] = e;
     return true;
 }
+
 private void ensureCapacityInternal(int minCapacity) {
     if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
         minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
@@ -75,6 +76,7 @@ private void ensureCapacityInternal(int minCapacity) {
 
     ensureExplicitCapacity(minCapacity);
 }
+
 private void ensureExplicitCapacity(int minCapacity) {
     modCount++;
 
@@ -82,6 +84,7 @@ private void ensureExplicitCapacity(int minCapacity) {
     if (minCapacity - elementData.length > 0)
         grow(minCapacity);
 }
+
 /**
  * Increases the capacity to ensure that it can hold at least the
  * number of elements specified by the minimum capacity argument.
