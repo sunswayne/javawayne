@@ -35,7 +35,9 @@ transient Object[] elementData; // non-private to simplify nested class access
 private int size;
 {% endhighlight %}
 
-不难看出这里声明了一个Object数组作为ArrayList的底层存储，并且使初始容量为10，然后声明了一个记录ArrayList大小的整型变量size。
+不难看出，这里声明了一个Object数组作为ArrayList的底层存储，并且使初始容量为10，然后声明了一个记录ArrayList大小的整型变量size。
+
+再来看一下ArrayList的三个构造方法：
 
 {% highlight java %} 
 public ArrayList() {
@@ -66,6 +68,10 @@ public ArrayList(int initialCapacity) {
 }
 {% endhighlight %}
 
+第一个构造方法，第二个，第三个。。
+
+然后是add方法。
+
 {% highlight java %} 
 public boolean add(E e) {
     ensureCapacityInternal(size + 1);  // Increments modCount!!
@@ -92,8 +98,6 @@ private void ensureExplicitCapacity(int minCapacity) {
 }
 {% endhighlight %}
 
-真正的逻辑处理在下面的grow方法中：
-
 {% highlight java %} 
 private void grow(int minCapacity) {
     // overflow-conscious code
@@ -107,3 +111,5 @@ private void grow(int minCapacity) {
     elementData = Arrays.copyOf(elementData, newCapacity);
 }
 {% endhighlight %}
+
+到这里关于ArrayList的内容就基本结束了。
