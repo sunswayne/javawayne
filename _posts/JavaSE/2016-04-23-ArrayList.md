@@ -19,7 +19,7 @@ tags:
 
 > Resizable-array implementation of the <tt>List</tt> interface.  Implements all optional list operations, and permits all elements, including <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface, this class provides methods to manipulate the size of the array that is used internally to store the list.  (This class is roughly equivalent to <tt>Vector</tt>, except that it is unsynchronized.)
 
-不难看出，ArrayList是一项以动态数组作为List接口实现的技术，并实现了其所有方法。ArrayList允许存放任何元素包括null值。其中有一段话颇有点耐人寻味，「**ArrayList除了实现了List的所有方法外，还提供了操作数组大小的方法**」，(竟然有这样的方法o(╯□╰)o为什么我从来没有用过？)别急，还有下文。官方又说：「**内部用作存储List**」，想想也是，ArrayList的实质不就是对Array进行了封装吗，那关于add的方法自然不再是数组的那一套，不然封装的意义是什么呢。(注：官方尤其提到ArrayList和Vector同时作为List的实现类基本是相同的，除了同步机制)。
+不难看出，ArrayList是一项以动态数组作为List接口实现的技术，并实现了其所有方法。ArrayList允许存放任何元素包括null值。其中有一段话颇有点耐人寻味，「**ArrayList除了实现了List的所有方法外，还提供了操作数组大小的方法**」(竟然有这样的方法？囧，为什么我从来没有用过？)，别急，还有下文。官方又说：「**仅在内部用作存储List**」。哦哦哦，这下懂了，ArrayList的实质不就是对Array进行了封装嘛，虽然内部依旧是数组，但暴露给我们的仅仅是十分简单的add方法。像这种操作底层数组的方法，自然用不着我们来调用，因为全都由ArrayList帮我们代劳就好了，哈哈~爽~(注：官方尤其提到ArrayList和Vector同时作为List的实现类基本是相同的，除了同步机制)
 
 再看一个关于集合的结构图。
 
