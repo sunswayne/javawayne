@@ -78,7 +78,7 @@ public ArrayList(int initialCapacity) {
 
 第三个构造方法。
 
-然后是add方法。
+然后是add方法。本人用的是jdk1.8，对比之前的jdk版本会发现关于add方法1.8版本进行了重构，代码变得更加结构化，也更加清晰易读。
 
 {% highlight java %} 
 public boolean add(E e) {
@@ -117,6 +117,36 @@ private void grow(int minCapacity) {
         newCapacity = hugeCapacity(minCapacity);
     // minCapacity is usually close to size, so this is a win:
     elementData = Arrays.copyOf(elementData, newCapacity);
+}
+{% endhighlight %}
+
+最后是remove方法。
+
+{% highlight java %} 
+public boolean remove(Object o) {
+    if (o == null) {
+        for (int index = 0; index < size; index++)
+            if (elementData[index] == null) {
+                fastRemove(index);
+                return true;
+            }
+    } else {
+        for (int index = 0; index < size; index++)
+            if (o.equals(elementData[index])) {
+                fastRemove(index);
+                return true;
+            }
+    }
+    return false;
+}
+
+private void fastRemove(int index) {
+    modCount++;
+    int numMoved = size - index - 1;
+    if (numMoved > 0)
+        System.arraycopy(elementData, index+1, elementData, index,
+                         numMoved);
+    elementData[--size] = null; // clear to let GC do its work
 }
 {% endhighlight %}
 
