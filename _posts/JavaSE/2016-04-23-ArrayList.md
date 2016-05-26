@@ -27,7 +27,6 @@ tags:
 > Resizable-array implementation of the <tt>List</tt> interface.  Implements all optional list operations, and permits all elements, including <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface, this class provides methods to manipulate the size of the array that is used internally to store the list.  (This class is roughly equivalent to <tt>Vector</tt>, except that it is unsynchronized.)
 
 首先是一组变量声明。
-
 {% highlight java %} 
 private static final int DEFAULT_CAPACITY = 10;
 transient Object[] elementData; // non-private to simplify nested class access
