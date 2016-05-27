@@ -4,7 +4,7 @@ author: Wayne Sun
 layout: post
 title: ArrayList实现原理
 category: JavaSE
-summary: 作为Java中常用的容器之一，ArrayList无疑占据了相当大的比重，也是我们学习Java以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用add()进行添加操作的时候，是否考虑过ArrayList的容量问题。当我们调用get()方法获取元素时，底层又是如何获得具体的对象值，ArrayList的使用场景与其他集合究竟有什么异同？
+summary: 作为<tt>Java</tt>中常用的容器之一，<tt>ArrayList</tt>无疑占据了相当大的比重，也是我们学习<tt>Java</tt>以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用<tt>add()</tt>进行添加操作的时候，是否考虑过<tt>ArrayList</tt>的容量问题。当我们调用<tt>get()</tt>获取元素时，底层又是如何获得具体的对象值，<tt>ArrayList</tt>的使用场景与其他集合究竟有什么异同？
 tags:
   - Java
   - ArrayList
@@ -13,19 +13,19 @@ tags:
 
 `文/孙少伟`
 
-作为Java中常用的容器之一，<tt>ArrayList</tt>无疑占据了相当大的比重，也是我们学习Java以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用<tt>add()</tt>进行添加操作的时候，是否考虑过<tt>ArrayList</tt>的容量问题。当我们调用<tt>get()</tt>方法获取元素时，底层又是如何获得具体的对象值，<tt>ArrayList</tt>的使用场景与其他集合究竟有什么异同？
+作为<tt>Java</tt>中常用的容器之一，<tt>ArrayList</tt>无疑占据了相当大的比重，也是我们学习<tt>Java</tt>以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用<tt>add()</tt>进行添加操作的时候，是否考虑过<tt>ArrayList</tt>的容量问题。当我们调用<tt>get()</tt>方法获取元素时，底层又是如何获得具体的对象值，<tt>ArrayList</tt>的使用场景与其他集合究竟有什么异同？
 
-惯例，先上一段ArrayList的官方注解：
+惯例，先上一段<tt>ArrayList</tt>的官方注解：
 
 > Resizable-array implementation of the <tt>List</tt> interface.  Implements all optional list operations, and permits all elements, including <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface, this class provides methods to manipulate the size of the array that is used internally to store the list.  (This class is roughly equivalent to <tt>Vector</tt>, except that it is unsynchronized.)
 
-ArrayList是一项以动态数组作为List接口实现的技术，并实现了其所有方法。ArrayList允许存放任何元素包括<tt>null</tt>值。其中有一段话颇有点耐人寻味，<q>**ArrayList除了实现了<tt>List</tt>的所有方法外，还提供了操作数组大小的方法**</q>(竟然有这样的方法？囧，为什么我从来没有用过？)，别急，还有下文。官方又说：<q>**仅在内部用作存储List**</q>。哦哦哦，这下懂了，ArrayList的实质不就是对Array进行了封装嘛，虽然内部依旧是数组，但暴露给我们的仅仅是十分简单的<tt>add()</tt>。像这种操作底层数组的方法，自然用不着我们来调用，因为全都由ArrayList帮我们代劳就好了。(注：官方尤其提到<q>**<tt>ArrayList</tt>和<tt>Vector</tt>同时作为<tt>List</tt>的实现类大体上是相同的，除了缺少同步机制**</q>)
+<tt>ArrayList</tt>是一项以动态数组作为List接口实现的技术，并实现了其所有方法。ArrayList允许存放任何元素包括<tt>null</tt>值。其中有一段话颇有点耐人寻味，<q>**ArrayList除了实现了<tt>List</tt>的所有方法外，还提供了操作数组大小的方法**</q>(竟然有这样的方法？囧，为什么我从来没有用过？)，别急，还有下文。官方又说：<q>**仅在内部用作存储List**</q>。哦哦哦，这下懂了，<tt>ArrayList</tt>的实质不就是对<tt>Array</tt>进行了封装嘛，虽然内部依旧是数组，但暴露给我们的仅仅是十分简单的<tt>add()</tt>。像这种操作底层数组的方法，自然用不着我们来调用，因为全都由<tt>ArrayList</tt>帮我们代劳就好了。(注：官方尤其提到<q>**<tt>ArrayList</tt>和<tt>Vector</tt>同时作为<tt>List</tt>的实现类大体上是相同的，除了缺少同步机制**</q>)
 
 接下来看一个关于集合的结构图:
 
 ![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
 
-不难看出，ArrayList显然是<tt>Collection</tt>集合的高级实现，与之同级别的还有<tt>LinkedList</tt>和<tt>Vector</tt>，也是后续我们将要涉及的概念。本文将通过阅读源代码的方式为大家展现ArrayList的内部构造和实现过程，主要关注ArrayList的<q>构造方法</q>和<q>自动扩容机制</q>。
+不难看出，<tt>ArrayList</tt>显然是<tt>Collection</tt>集合的高级实现，与之同级别的还有<tt>LinkedList</tt>和<tt>Vector</tt>，也是后续我们将要涉及的概念。本文将通过阅读源代码的方式为大家展现<tt>ArrayList</tt>的内部构造和实现过程，主要关注<tt>ArrayList</tt>的<q>构造方法</q>和<q>自动扩容机制</q>。
 
 首先是一组变量声明:
 
@@ -37,7 +37,7 @@ private int size;
 
 不难看出，这里声明了一个<tt>Object[]</tt>作为<tt>ArrayList</tt>的底层存储，并且使默认容量为<tt>10</tt>，然后声明了一个记录<tt>ArrayList</tt>大小的整型变量<tt>size</tt>。这里可能会感到奇怪，为什么要单独用一个变量记录<tt>elementData</tt>的长度，而不是直接用<tt>elementData.length</tt>，这是因为数组是定长的，当有元素为<tt>null</tt>时，出于节省容量的目的不需要再保存它们，因此会调用<tt>trimToSize()</tt>调整容量至当前实际元素的大小，所以数组实际存储容量并不等于<tt>elementData.length</tt>。
 
-**ArrayList构造方法**。再来看一下ArrayList的三个构造方法：
+**ArrayList构造方法**。再来看一下<tt>ArrayList</tt>的三个构造方法：
 
 {% highlight java %} 
 public ArrayList() {
@@ -45,7 +45,7 @@ public ArrayList() {
 }
 {% endhighlight %}
 
-该构造方法是空构造，意味着当我们<tt>new ArrayList()</tt>的时候，会分配一个<tt>{}</tt>给该list。
+该构造方法是空构造，意味着当我们<tt>new ArrayList()</tt>的时候，会分配一个<tt>{}</tt>给该<tt>list</tt>。
 
 {% highlight java %} 
 public ArrayList(Collection<? extends E> c) {
@@ -160,6 +160,6 @@ private void fastRemove(int index) {
 }
 {% endhighlight %}
 
-<tt>ArrayList</tt>的<tt>remove()</tt>相比较而言就显得简单多了，实现原理是传入待删除元素的下标到<q>快速删除</q>方法，然后进行数组内部的copy，移动量取决于下标所处的位置。
+<tt>ArrayList</tt>的<tt>remove()</tt>相比较而言就显得简单多了，实现原理是传入待删除元素的下标到<q>快速删除</q>方法，然后进行数组内部的<tt>copy</tt>，移动量取决于下标所处的位置。
 
 到这里关于<tt>ArrayList</tt>的内容就基本结束了。
