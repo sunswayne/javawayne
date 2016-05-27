@@ -25,7 +25,7 @@ ArrayList是一项以动态数组作为List接口实现的技术，并实现了�
 
 ![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
 
-不难看出，ArrayList显然是Collection集合的高级实现，与之同级别的还有LinkedList和Vector，也是后续我们将要涉及的概念。本文将通过阅读源代码的方式为大家展现ArrayList的内部构造和实现过程，主要关注ArrayList的构造方法和自动扩容机制。
+不难看出，ArrayList显然是<tt>Collection</tt>集合的高级实现，与之同级别的还有<tt>LinkedList</tt>和<tt>Vector</tt>，也是后续我们将要涉及的概念。本文将通过阅读源代码的方式为大家展现ArrayList的内部构造和实现过程，主要关注ArrayList的<q>构造方法</q>和<q>自动扩容机制</q>。
 
 首先是一组变量声明:
 
@@ -99,7 +99,7 @@ private void ensureCapacityInternal(int minCapacity) {
 }
 {% endhighlight %}
 
-首先传递list增加元素之后的大小size，并判断当前Object数组是否为空，如果为空，则把size和默认容量10作比较，取最大的一方作为新的容量值。如果当前list不为空，则继续向下进行，确保精确容量。
+首先传递list增加元素之后的大小size，并判断当前Object数组是否为空，如果为空，则把size和默认容量作比较，取最大的一方作为新的容量值。如果当前list不为空，则继续向下进行，确保精确容量。
 
 {% highlight java %} 
 private void ensureExplicitCapacity(int minCapacity) {
