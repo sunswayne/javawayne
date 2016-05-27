@@ -37,7 +37,7 @@ private int size;
 
 不难看出，这里声明了一个Object数组作为ArrayList的底层存储，并且使初始容量为<tt>10</tt>，然后声明了一个记录ArrayList大小的整型变量size。
 
-再来看一下ArrayList的三个构造方法：
+**ArrayList构造方法**。再来看一下ArrayList的三个构造方法：
 
 {% highlight java %} 
 public ArrayList() {
@@ -88,6 +88,8 @@ public boolean add(E e) {
 }
 {% endhighlight %}
 
+此add方法用作添加已经指定类型的元素。这里使用模计数来计算增量，并把添加进来的元素赋值到末尾位置。
+
 {% highlight java %} 
 private void ensureCapacityInternal(int minCapacity) {
     if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
@@ -97,6 +99,8 @@ private void ensureCapacityInternal(int minCapacity) {
 }
 {% endhighlight %}
 
+首先传递list增加元素之后的大小size，并判断当前Object数组是否为空，如果为空，则把size和默认容量10作比较，取最大的一方作为新的容量值。如果当前list不为空，则继续向下进行，确保精确容量。
+
 {% highlight java %} 
 private void ensureExplicitCapacity(int minCapacity) {
     modCount++;
@@ -105,6 +109,8 @@ private void ensureExplicitCapacity(int minCapacity) {
         grow(minCapacity);
 }
 {% endhighlight %}
+
+这里模计数加1，判断如果当前容量大于初始容量，则实现增加方法。
 
 {% highlight java %} 
 private void grow(int minCapacity) {
@@ -119,6 +125,10 @@ private void grow(int minCapacity) {
     elementData = Arrays.copyOf(elementData, newCapacity);
 }
 {% endhighlight %}
+
+到了这里我们方才能够一窥庐山真面目。首先把原始容量进行位运算，其效果等同于<code>int newCapacity = (oldCapacity * 3)/2 + 1;</code>，如果新扩容的数组长度还是比最小需要的容量小，则以最小需要的容量为长度进行扩容。不禁感叹，JVM在内存分配上真是抠门啊，似乎像是在菜市场买菜时讨价还价一样，直接做这一步哪里有那么多事，一点也不豪爽。当获得了最新的容量值后，最后调用Array的copyOf方法给当前list扩容。
+
+现在想想，ArrayList的自动扩容，似乎远远不是给数组长度加1那么简单。
 
 最后是remove方法。
 
