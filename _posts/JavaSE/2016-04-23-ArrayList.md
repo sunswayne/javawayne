@@ -35,7 +35,7 @@ transient Object[] elementData; // non-private to simplify nested class access
 private int size;
 {% endhighlight %}
 
-不难看出，这里声明了一个Object数组作为ArrayList的底层存储，并且使初始容量为``10``，然后声明了一个记录ArrayList大小的整型变量size。
+不难看出，这里声明了一个Object数组作为ArrayList的底层存储，并且使初始容量为<tt>10</tt>，然后声明了一个记录ArrayList大小的整型变量size。
 
 再来看一下ArrayList的三个构造方法：
 
