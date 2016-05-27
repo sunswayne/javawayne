@@ -35,7 +35,7 @@ transient Object[] elementData; // non-private to simplify nested class access
 private int size;
 {% endhighlight %}
 
-不难看出，这里声明了一个Object数组作为ArrayList的底层存储，并且使默认容量为<tt>10</tt>，然后声明了一个记录ArrayList大小的整型变量size。
+不难看出，这里声明了一个Object数组作为ArrayList的底层存储，并且使默认容量为<tt>10</tt>，然后声明了一个记录ArrayList大小的整型变量<tt>size</tt>。这里可能会感到奇怪，为什么要单独用一个变量记录<tt>elementData</tt>的长度，而不是直接用<tt>elementData.length</tt>，这是因为数组是定长的，当有元素为null时，出于节省容量的目的不需要再保存它们，因此会调用trimToSize方法调整容量至当前实际元素的大小，所以数组实际存储容量并不等于<tt>elementData.length</tt>。
 
 **ArrayList构造方法**。再来看一下ArrayList的三个构造方法：
 
