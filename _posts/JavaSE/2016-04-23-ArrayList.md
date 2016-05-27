@@ -2,7 +2,7 @@
 published: true
 author: Wayne Sun
 layout: post
-title: ArrayList实现原理解析
+title: ArrayList实现原理
 category: JavaSE
 summary: 作为Java中常用的容器之一，ArrayList无疑占据了相当大的比重，也是我们学习Java以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用add()进行添加操作的时候，是否考虑过ArrayList的容量问题。当我们调用get()方法获取元素时，底层又是如何获得具体的对象值，ArrayList的使用场景与其他集合究竟有什么异同？
 tags:
@@ -45,7 +45,7 @@ public ArrayList() {
 }
 {% endhighlight %}
 
-第一个构造方法是空构造方法，也就是说当我们<tt>new ArrayList()</tt>的时候，会分配一个空数组给该list。
+该构造方法是空构造方法，也就是说当我们<tt>new ArrayList()</tt>的时候，会分配一个空数组给该list。
 
 {% highlight java %} 
 public ArrayList(Collection<? extends E> c) {
@@ -61,7 +61,7 @@ public ArrayList(Collection<? extends E> c) {
 }
 {% endhighlight %}
 
-第二个构造方法是构造一个包含指定集合的list，判断如果传入的集合长度不为空，且调用toArray之后其clas类型不为Object数组？才重新copy到一个新的Object数组，长度和指定list相等。
+该构造方法是构造一个包含指定集合的list，判断如果传入的集合长度不为空，且调用toArray之后其clas类型不为Object数组？才重新copy到一个新的Object数组，长度和指定list相等。
 
 {% highlight java %} 
 public ArrayList(int initialCapacity) {
@@ -76,7 +76,7 @@ public ArrayList(int initialCapacity) {
 }
 {% endhighlight %}
 
-第三个构造方法是构造一个具有默认容量大小的list，这里只考虑容量大于等于0的情况，否则抛出异常。当指定0时，与调用空构造方法的效果相同，指定大于0的容量时，则new一个相应大小的Object数组作为当前list的容量。
+该构造方法是构造一个具有默认容量大小的list，这里只考虑容量大于等于0的情况，否则抛出异常。当指定0时，与调用空构造方法的效果相同，指定大于0的容量时，则new一个相应大小的Object数组作为当前list的容量。
 
 **ArrayList自动扩容机制**。本人用的是<tt>JDK1.8</tt>，对比之前的JDK版本会发现关于add方法1.8版本进行了重构，代码变得更加结构化，也更加清晰易读。
 
@@ -126,11 +126,11 @@ private void grow(int minCapacity) {
 }
 {% endhighlight %}
 
-到了这里我们方才能够一窥庐山真面目。首先把原始容量进行位运算，其效果等同于<tt>int newCapacity = (oldCapacity * 3)/2</tt>，如果没记错的话，这也是之前的JDK版本所沿用的代码，也算是JDK1.8做出的新改变吧，位运算的速度总是比普通运算快很多。如果新扩容的数组长度还是比最小需要的容量小，则以最小需要的容量为长度进行扩容。反之，如果扩容的长度大于数组最大容量，也要强行给你设个上限，总之不能让你痛快。不禁感叹，JVM在内存分配上真是抠门啊，好像是在菜市场买菜时讨价还价一样。当获得了最新的容量值后，最后调用Array的copyOf方法给当前数组扩容，值得一提的是，Array的这种拷贝，是要移动所有数据元素的，因此造成的开销相当的大，因此也就明白了为什么JVM在进行扩容的时候如此之谨慎了吧，为之前的误解深深的自责中~
+到了这里我们方才能够一窥庐山真面目。首先把原始容量进行位运算，其效果等同于<tt>int newCapacity = (oldCapacity * 3)/2</tt>。如果没记错的话，这也是之前的JDK版本所沿用的代码，也算是JDK1.8做出的新改变，位运算的速度总是比普通运算快很多。如果新扩容的数组长度还是比最小需要的容量小，则以最小需要的容量为长度进行扩容。反之，如果扩容的长度大于数组最大容量，也要强行给你设个上限，总之不能让你痛快。不禁感叹，JVM在内存分配上真是抠门，好像是在菜市场买菜时讨价还价一样。当获得了最新的容量值后，最后调用Array的copyOf方法给当前数组扩容。值得一提的是，Array的这种拷贝，是要移动所有数据元素的，因此造成的开销相当的大，因此也就明白了为什么JVM在进行扩容的时候如此之谨慎了吧，为之前的误解深深的自责中~
 
-现在想想，ArrayList在调用add方法时的自动扩容，其本质就是给数组的扩容，但远远不是给数组长度加1那么简单。
+现在想想，ArrayList在调用add方法时的自动扩容，其本质就是给数组的扩容。但经过这么一番分析，返现远远不是给数组长度加1那么简单。
 
-既然看了add方法，最后还是看看remove方法吧：
+看了add方法，再来看看remove方法：
 
 {% highlight java %} 
 public boolean remove(Object o) {
@@ -159,5 +159,7 @@ private void fastRemove(int index) {
     elementData[--size] = null; // clear to let GC do its work
 }
 {% endhighlight %}
+
+ArrayList的remove方法相比较而言就显得简单多了，实现原理是传入待删除元素的下标到<q>快速删除</q>方法，然后进行数组内部的copy，移动量取决于下标所处的位置。
 
 到这里关于ArrayList的内容就基本结束了。
