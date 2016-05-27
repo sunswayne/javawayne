@@ -61,7 +61,7 @@ public ArrayList(Collection<? extends E> c) {
 }
 {% endhighlight %}
 
-该构造方法是构造一个包含指定集合的<tt>list</tt>，判断如果传入的集合长度不为空，且调用<tt>toArray()</tt>之后其class类型不为<tt>Object[]</tt>才重新copy到一个新的<tt>Object[]</tt>，长度和指定<tt>list</tt>相等。需要说明的是，该方法使用了泛型中的**PECS**原则<q>生产者(Producer)使用extends，消费者(Consumer)使用super</q>，用来专门提供<q>E</q>类型的元素，以确保取到的元素类型都是<q>E</q>。
+该构造方法是构造一个包含指定集合的<tt>list</tt>，判断如果传入的集合长度不为空，且调用<tt>toArray()</tt>之后其<tt>class</tt>类型不为<tt>Object[]</tt>才重新<tt>copy</tt>到一个新的<tt>Object[]</tt>，长度和指定<tt>list</tt>相等。需要说明的是，该方法使用了泛型中的**PECS**原则<q>生产者(Producer)使用extends，消费者(Consumer)使用super</q>，用来专门提供<q>E</q>类型的元素，以确保取到的元素类型都是<q>E</q>。
 
 {% highlight java %} 
 public ArrayList(int initialCapacity) {
@@ -126,7 +126,7 @@ private void grow(int minCapacity) {
 }
 {% endhighlight %}
 
-到了这里我们方才能够一窥庐山真面目。首先把原始容量进行位运算，其效果等同于<tt>int newCapacity = (oldCapacity * 3)/2</tt>。如果没记错的话，这也是之前的JDK版本所沿用的代码，也算是<tt>JDK1.8</tt>做出的新改变，位运算的速度总是比普通运算快很多。**如果新扩容的数组长度还是比最小需要的容量小，则以最小需要的容量为长度进行扩容。反之，如果扩容的长度大于数组最大容量，也要强行设定上限**。当获得了最新的容量值后，最后调用<tt>Array</tt>的<tt>copyOf()</tt>给当前数组扩容。值得一提的是，<tt>Array</tt>的这种拷贝，是要移动所有数据元素的，因此造成的开销相当的大，因此也就明白了为什么JVM在进行扩容的时候如此之谨慎了吧。
+到了这里我们方才能够一窥庐山真面目。首先把原始容量进行位运算，其效果等同于<tt>int newCapacity = (oldCapacity * 3)/2</tt>。如果没记错的话，这也是之前的JDK版本所沿用的代码，也算是<tt>JDK1.8</tt>做出的新改变，位运算的速度总是比普通运算快很多。**如果新扩容的数组长度还是比最小需要的容量小，则以最小需要的容量为长度进行扩容。反之，如果扩容的长度大于数组最大容量，也要强行设定上限**。当获得了最新的容量值后，最后调用<tt>Array</tt>的<tt>copyOf()</tt>给当前数组扩容。值得一提的是，<tt>Array</tt>的这种拷贝，是要移动所有数据元素的，因此造成的开销相当的大，因此也就明白了为什么<tt>JVM</tt>在进行扩容的时候如此之谨慎了吧。
 
 现在想想，<tt>ArrayList</tt>在调用<tt>add()</tt>时的自动扩容，其本质就是给数组的扩容。但经过这么一番分析，发现远远不是给数组长度加1那么简单。
 
