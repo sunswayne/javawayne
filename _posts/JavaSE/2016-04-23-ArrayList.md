@@ -25,7 +25,7 @@ ArrayList是一项以动态数组作为List接口实现的技术，并实现了�
 
 ![](http://cdowv.img48.wal8.com/img48/519761_20150601204824/1464240935.jpg)
 
-不难看出，ArrayList显然是Collection集合的高级实现，与之同级别的还有LinkedList和Vector。本文将通过阅读源代码的方式为大家展现ArrayList的内部构造和实现过程，主要关注ArrayList的构造方法和自动扩容机制。
+不难看出，ArrayList显然是Collection集合的高级实现，与之同级别的还有LinkedList和Vector，也是后续我们将要涉及的概念。本文将通过阅读源代码的方式为大家展现ArrayList的内部构造和实现过程，主要关注ArrayList的构造方法和自动扩容机制。
 
 首先是一组变量声明:
 
@@ -35,7 +35,7 @@ transient Object[] elementData; // non-private to simplify nested class access
 private int size;
 {% endhighlight %}
 
-不难看出，这里声明了一个Object数组作为ArrayList的底层存储，并且使初始容量为10，然后声明了一个记录ArrayList大小的整型变量size。
+不难看出，这里声明了一个Object数组作为ArrayList的底层存储，并且使初始容量为``10``，然后声明了一个记录ArrayList大小的整型变量size。
 
 再来看一下ArrayList的三个构造方法：
 
