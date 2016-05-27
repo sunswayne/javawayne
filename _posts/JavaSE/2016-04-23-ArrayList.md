@@ -88,7 +88,7 @@ public boolean add(E e) {
 }
 {% endhighlight %}
 
-此add方法用作添加已经指定类型的元素。这里使用模计数来计算增量，并把添加进来的元素赋值到末尾位置。
+此<tt>add()</tt>用作添加已经指定类型的元素，把添加进来的元素赋值到末尾位置。
 
 {% highlight java %} 
 private void ensureCapacityInternal(int minCapacity) {
@@ -99,7 +99,7 @@ private void ensureCapacityInternal(int minCapacity) {
 }
 {% endhighlight %}
 
-首先传递list增加元素之后的<tt>size</tt>，并判断当前<tt>Object[]</tt>是否为空，如果为空，则把<tt>size</tt>和<tt>DEFAULT_CAPACITY</tt>作比较，取最大的一方作为新的容量值。如果当前list不为空，则继续向下进行，确保精确容量。
+首先传递当前容量作为最小容量，并判断当前<tt>Object[]</tt>是否为空，如果为空，则把最小容量和<tt>DEFAULT_CAPACITY</tt>作比较，取最大的一方作为新的容量值。如果当前list不为空，则继续向下进行，确保精确容量。
 
 {% highlight java %} 
 private void ensureExplicitCapacity(int minCapacity) {
@@ -128,9 +128,9 @@ private void grow(int minCapacity) {
 
 到了这里我们方才能够一窥庐山真面目。首先把原始容量进行位运算，其效果等同于<tt>int newCapacity = (oldCapacity * 3)/2</tt>。如果没记错的话，这也是之前的JDK版本所沿用的代码，也算是<tt>JDK1.8</tt>做出的新改变，位运算的速度总是比普通运算快很多。**如果新扩容的数组长度还是比最小需要的容量小，则以最小需要的容量为长度进行扩容。反之，如果扩容的长度大于数组最大容量，也要强行设定上限**。当获得了最新的容量值后，最后调用Array的<tt>copyOf()</tt>给当前数组扩容。值得一提的是，Array的这种拷贝，是要移动所有数据元素的，因此造成的开销相当的大，因此也就明白了为什么JVM在进行扩容的时候如此之谨慎了吧。
 
-现在想想，ArrayList在调用add方法时的自动扩容，其本质就是给数组的扩容。但经过这么一番分析，发现远远不是给数组长度加1那么简单。
+现在想想，ArrayList在调用<tt>add()</tt>时的自动扩容，其本质就是给数组的扩容。但经过这么一番分析，发现远远不是给数组长度加1那么简单。
 
-看了add方法，再来看看remove方法：
+看了<tt>add()</tt>，再来看看<tt>remove()</tt>：
 
 {% highlight java %} 
 public boolean remove(Object o) {
