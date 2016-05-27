@@ -78,7 +78,7 @@ public ArrayList(int initialCapacity) {
 
 第三个构造方法。
 
-然后是add方法。本人用的是jdk1.8，对比之前的jdk版本会发现关于add方法1.8版本进行了重构，代码变得更加结构化，也更加清晰易读。
+**ArrayList自动扩容机制**。本人用的是<tt>JDK1.8</tt>，对比之前的JDK版本会发现关于add方法1.8版本进行了重构，代码变得更加结构化，也更加清晰易读。
 
 {% highlight java %} 
 public boolean add(E e) {
