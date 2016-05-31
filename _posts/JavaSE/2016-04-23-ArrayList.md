@@ -2,7 +2,7 @@
 published: true
 author: Wayne Sun
 layout: post
-title: ArrayList实现原理
+title: 深入理解ArrayList的实现原理
 category: JavaSE
 summary: 作为<tt>Java</tt>中常用的容器之一，<tt>ArrayList</tt>无疑占据了相当大的比重，也是我们学习<tt>Java</tt>以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用<tt>add()</tt>进行添加操作的时候，是否考虑过<tt>ArrayList</tt>的容量问题。当我们调用<tt>get()</tt>获取元素时，底层又是如何获得具体的对象值，<tt>ArrayList</tt>的使用场景与其他集合究竟有什么异同？
 tags:
