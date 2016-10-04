@@ -71,10 +71,13 @@ Blogroll:
       title: 阮一峰的网络日志
     - name: 酷壳
       href: http://coolshell.cn/
-      title: Ri Xu
+      title: 酷壳
     - name: MacTalk
       href: http://macshuo.com
       title: MacTalk
+    - name: 并发编程网
+      href: http://ifeve.com/
+      title: 并发编程网
 
 ### Build settings.
 permalink: /:year/:month/:day/:title/
