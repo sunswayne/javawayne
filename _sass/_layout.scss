@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /**
  * Site header
  */
@@ -7,33 +9,29 @@
 }
 
 .site-title {
-  font-size: 36px;
+  font-size: 48px;
   line-height: 56px;
   letter-spacing: -1px;
   margin-bottom: 0;
-  text-align:left;
+  text-align:center;
   a{
     &,
     &:visited
     &:hover {
       color: $brand-top-color; //$grey-color-dark
-      border-bottom: 0px dotted;
+      border-bottom: 1px dotted;
       text-decoration: none;
     }
   }
 }
 
 .site-meta{
-  font-size: 16px;
+  font-size: 20px;
   line-height:56px;
   letter-spacing: -1px;
   margin-bottom: 0;
-  text-align:left; 
+  text-align:center; 
   color: $grey-color;
-
-  @include media-query($on-laptop) {
-      font-size: 14px;
-  }  
 }
 
 .site-nav {
@@ -107,13 +105,15 @@
 
 }
 
+
 /**
  * Sidebar
  */
+
 .sidebar-module {
-  padding: 10px;
-  margin: 0 -10px 10px;
-  font-size: 16px;
+  padding: 15px;
+  margin: 0 -15px 15px;
+  font-size: 14px;
   h4{
     font-size: $base-font-size;
     font-weight: bold;
@@ -125,9 +125,11 @@
 
 }
 
+
 /**
  * Site footer
  */
+
 .site-footer {
   clear: both;
   text-align: center;
@@ -137,6 +139,8 @@
   padding: $spacing-unit 0;
   font-size: 14px;
 }
+
+
 
 /**
  * Page content
@@ -158,8 +162,10 @@
 
 .post-link {
   display: block;
-  font-size: 28px;//42px;
+  font-size: 38px;//42px;
 }
+
+
 
 /**
  * Posts
@@ -169,75 +175,83 @@
   time{
       margin-left: 0px;
       font-style: normal;
-   }
+
+  }
 }
 
 .post-title {
-  font-size: 28px;//42px;
+  font-size: 38px;//42px;
   letter-spacing: -1px;
   line-height: 1;
 
   @include media-query($on-laptop) {
-    font-size: 24px;
+    font-size: 36px;
   }
 }
 
-.post-content {
-  margin-bottom: $spacing-unit;
-  font-size: 16px;
 
-  h1, h2, h3, h4, h5, h6 {
-    line-height: 1.5em;
+
+#markdown-toc{
+  float: right;
+  width:50%;
+  background:#f4f7f8;
+  padding:20px 15px;
+  li{
+    padding-top:10px;
+    position:relative; 
+    list-style-type:none;  
   }
+}
 
+#markdown-toc:before{
+  content:"Table of Contents";
+  font-weight: 700;
+  padding-left:10px;
+  border-bottom:5px solid $grey-color-light !important;
+  display:block;
+  font-size:18px
+}
+
+
+
+.post-content {
+  p { padding:$spacing-unit/5 0; } 
+  //margin-bottom: $spacing-unit;
   h1 { 
-    font-size: 2em;
-
+    font-size: 38px;
+    line-height:1em;
     @include media-query($on-laptop){
-      font-size: 1.8em;
+      font-size: 36px;
     }
 
   }
   h2 {
-    font-size: 1.8em;
-
+    font-size: 32px;
+    line-height:1em;
     @include media-query($on-laptop) {
-      font-size: 1.6em;
+      font-size: 28px;
     }
   }
 
   h3 {
-    font-size: 1.6em;
+    font-size: 26px;
+    line-height:1em;
 
     @include media-query($on-laptop) {
-      font-size: 1.4em;
+      font-size: 22px;
     }
   }
 
   h4 {
-    font-size: 1.4em;
+    font-size: 20px;
+    line-height:1em;
 
     @include media-query($on-laptop) {
-      font-size: 1.2em;
-    }
-  }
-
-  h5 {
-    font-size: 1.2em;
-
-    @include media-query($on-laptop) {
-      font-size: 1em;
-    }
-  }
-
-  h6 {
-    font-size: 1.2em;
-
-    @include media-query($on-laptop) {
-      font-size: 1em;
+      font-size: 18px;
     }
   }
 }
+
 
 /**
  * Pagination Style
@@ -252,6 +266,7 @@
   li.next a{float:right;}
   li.disabled {display:none;}
 }
+
 
 /**
  * Tags and Categories Style
@@ -268,6 +283,7 @@
   }
 }
 
+
 /*time style of tages and categories*/
 
 time{
@@ -275,12 +291,15 @@ time{
   font-style: italic;
 }
 
+
+
 /**
  * Aboutme photo Style
  */
 
+
 .about{
-  img {
+  img{
     height: 128px;
     width: 128px;
     border-radius:50%;
@@ -288,6 +307,16 @@ time{
     display: block;
   }
 }
+
+.img-about{
+  height: 128px;
+  width: 128px;
+  border-radius:50%;
+  margin: 0 auto;
+  display: block;
+}
+
+
 
 /**
  * New style for quotation.
@@ -303,3 +332,4 @@ q:after {
   color: #DD1144;
   font-weight:bold;
 }
+

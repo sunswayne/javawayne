@@ -1,25 +1,27 @@
 ---
 layout: page
 title: About
-comments: no
+comments: yes
 permalink: /about/
 ---
 
-这里是 Wayne 的个人站点。
+
+### Freshman21 is a Jekyll theme.
+
+A tribute to Twenty Twelve and Twenty eleven.
+
+I like wordpress's theme Twenty Twelve and Twenty eleven very much. 
+So I called my Jekyll theme Freshman21 (Freshman <q>twenty-first</q> , it means twenty-first century, not twenty-one), this theme is based on my former theme [Freshman](https://github.com/yulijia/freshman/).
+
+Freshman21 have two main page format, one is [single column](http://yulijia.net/en/  "see demo"), the other is two columns. For more details, please see the articles on the site.
+
+<cite>Proudly enjoy using Freshman21 theme.</cite> <code>;)</code>
+
+![麋鹿](https://i.imgur.com/Mdc4szJl.jpg){: .img-about}
+
+#### Hi, the picture you have seen in the sample-page is a Père David's deer photoed by my friend at Beijing Milu Park, China.
+
+Milu(麋鹿) is the chinese name of Père David's deer.
 
 
-我是陕西人，现在工作在成都，IT屌丝一枚，但自觉享受。
 
-Keep in touch: LinkedIn <a href="http://www.linkedin.com/in/dbarobin" target="_blank"><img src="https://dbarobin.com/images/linkedin_btn_profile_greytxt_80x15.gif" alt="View Robin Wen's profile on LinkedIn" style="border: 0px;height: 15px;width: 80px;position: absolute;margin-left: 180px;margin-top: -20px;vertical-align: baseline;"/></a>
-
-科学上网利器点击：<a href="http://itxs.co/s/28196b4h" target="_blank"><img src="/images/itxs_16x16.png" alt="科学上网必备利器，土行孙，值得拥有" style="border: 0px;height: 16px;width: 16px;position: absolute;margin-left: 140px;margin-top: -22px;vertical-align: baseline;"/></a> &nbsp;&nbsp;&nbsp;&nbsp;(或者使用邀请码：28196b4h)
-
-可以通过电子邮件和我联系: sswxysswxy@163.com.
-
-–EOF–
-
-<p class="post-meta">
-   <span id="busuanzi_container_page_pv">
-      By Wayne Sun, Viewd <span id="busuanzi_value_page_pv"></span> times.
-   </span>
-</p>

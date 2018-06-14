@@ -1,28 +1,15 @@
 <head>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cmn-Hans" xml:lang="zh-cmn-Hans">
 <meta charset="utf-8">
-<meta name="X-UA-Compatible" content="IE=edge">
-<meta name="content-language" content="zh">
-<meta name="Content-Security-Policy" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width initial-scale=1">
 
-<title>
-   {% if page.title %}
-      {{ page.title }} | {{ site.title }}
-   {% elsif post.title %}
-      {{ post.title }} | {{ site.title }}
-   {% else %}
-      {{ site.title }} | {{ site.tagline }}
-   {% endif %}
-</title>
-<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-<meta name="keywords" content="{{ site.keywords }}">
-<meta property="og:title" content="Wayne, @JAVA" />
-<meta property="og:type" content="Blog, Focus on Java." />
-<meta property="og:url" content="http://waynesun.xyz/" />
-<meta property="og:image" content="http://waynesun.xyz/images/1.jpg" />
-
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="{{ site.locale }}">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@{{ site.twitter_username }}">
 <meta name="twitter:creator" content="@{{ site.twitter_username }}">
@@ -30,45 +17,16 @@
 <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
 
-<link rel="icon" href="http://waynesun.xyz/images/2.jpg">
-<link rel="stylesheet" href="{{ "http://waynesun.xyz/css/main.css" | prepend: site.baseurl }}">
-<link rel="stylesheet" href="http://waynesun.xyz/assets/awesome/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="http://waynesun.xyz/assets/css/robin.css">
-<!-- 
-<link rel="stylesheet" type="text/css" href="/assets/css/fonts-open-sans.css">
--->
+<meta name="keywords" content="{{ site.keywords }}">
+
+<link rel="icon" href="{{site.favicon| prepend:site.baseurl}}">
+<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' |  prepend: site.url }}">
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.url }}" />
 
-<!--
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?385d238b95fb1e2bd25f6510cc28b7a9";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<noscript>Your browser doesn't support JavaScript or you have disabled JavaScript!</noscript>
--->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-<!--
-Force using https.
--->
-<!--
-<script type="text/javascript">
-    var host = "sunswayne.com";
-    if ((host == window.location.host) && (window.location.protocol != "https:"))
-        window.location.protocol = "https";
-</script>
-
-<div style="display:none">
-	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256776130'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256776130' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<noscript>Your browser doesn't support JavaScript or you have disabled JavaScript!</noscript>
-</div>
--->
-{% include google_search.js %}
 
 </head>
+
+

@@ -8,6 +8,8 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
+
+
 /**
  * Basic styling
  */
@@ -21,6 +23,8 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+
+
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
@@ -31,28 +35,14 @@ ul, ol, dl, figure,
   margin-bottom: $spacing-unit / 2;
 }
 
-/**
-* Paragraph
-*/
-p {
-  font-family: "Open Sans", "Helvetica", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", serif;
-  line-height: 1.7em;
-  margin-bottom: 1.7em;
-  word-break: break-all;
-}
 
-/**
-* Title
-*/
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Lucida Grande", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", sans-serif;
-  margin-top: .7em;
-  margin-bottom: 0.2em;
-}
+
+
 
 /**
  * Set main page style
  */
+
 .container {
   min-height:100%;
   max-width: -webkit-calc(#{$page-width} - (#{$spacing-unit} * 2));
@@ -101,8 +91,10 @@ h1, h2, h3, h4, h5, h6 {
  */
 img {
   max-width: 100%;
-  vertical-align: left;
+  vertical-align: middle;
 }
+
+
 
 /**
  * Figures
@@ -115,22 +107,23 @@ figcaption {
   font-size: $small-font-size;
 }
 
+
+
 /**
  * Lists
  */
 ul, ol {
-  margin-left: $spacing-unit + 17;
-  margin-bottom: 1.25em;
-  font-family: "Open Sans", "Helvetica", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", serif;
+  margin-left: $spacing-unit;
 }
 
 li {
-  font-family: "Open Sans", "Helvetica", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", serif;
   > ul,
   > ol {
     margin-bottom: 0;
   }
 }
+
+
 
 /**
  * Headings
@@ -138,6 +131,8 @@ li {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
+
+
 
 /**
  * Links
@@ -152,24 +147,15 @@ a {
 
   &:hover {
     color: #669900; //$hover-color;
-    text-decoration: none;
+    text-decoration: underline;
   }
-
-  &:focus {
-      outline: thin dotted;
-      color: lighten($brand-top-color, 20%);
-  }   
-
-  &:hover,
-  &:active {
-      outline: 0;
-  }   
 }
+
 
 .post-content a{
   color: $brand-color;    
   text-decoration: none;  
-  border-bottom: 0px dotted;
+  border-bottom: 1px dotted;
   &:visited {             
     color: darken($brand-color, 25%);
   }                       
@@ -186,18 +172,16 @@ a {
  */
 
 blockquote{
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #777777;
+  padding: 0 1em;
   margin: 14px 0;
-  font-size: 14px;
+  border: 2px dashed #d0dfda;
+  border-radius: 5px;
+  color: $grey-color;
+  font-size: 18px;
+  background: #f9f9f9;
 
   &:hover {
     color: #454545;
-  }
-
-  > :first-child {
-    margin-top: 0;
   }
 
   > :last-child {
@@ -210,72 +194,34 @@ blockquote{
 /**
  * Code formatting
  */
-pre code {
-  display: inline;
-  max-width: initial;
-  padding: 0;
-  margin: 0;
-  overflow: initial;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
-  border: 0;
-}
-
-pre {
-  margin-top: 0;
-  margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  padding: 0 16px 16px 16px;
-  overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: #f7f7f7;
+pre,code {
+  font-size: 15px;
   border-radius: 3px;
-}
-
-pre>code {
-  padding: 0;
-  margin: 0;
-  font-size: 12px;
-  word-break: normal;
-  white-space: pre;
-  background: transparent;
-  border: 0;
-}
-
-.highlight {
-  margin-bottom: 30px;
-}
-
-.highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
+  background-color: $code-backgroud-color;
+  color: $code-font-color;
 }
 
 code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
+  padding: 1px 5px;
 }
 
-pre code, pre tt {
-  background-color: transparent;
-  border: none;
+pre {
+  padding: 8px 12px;
+  overflow: auto; 
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  background-color: #f8f8f8;
-  border-radius: 3px; 
-}
+
 
 /**
  * Wrapper
  */
-   .wrapper {
+.wrapper {
   max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
   max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
   margin-right: auto;
@@ -334,6 +280,7 @@ code, tt {
 
 table { 
   padding: 0;
+  margin-bottom: 5px;
   border-collapse: collapse; 
   font-size: $small-font-size;
 }
@@ -364,58 +311,12 @@ table tr th :last-child, table tr td :last-child { margin-bottom: 0; }
  */
 
 hr{
-  display: block;
-  margin: 1em 0;
-  padding: 0;
-  height: 1px;
+  margin-bottom: 30px;
   border: 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px dotted #ccc;
 }
 
 cite{ 
   font-style: italic;
-  text-decoration: none;
-}
-
-.searchform .field {
-    padding:                5px;
-    width:                  200px;
-    border:                 solid 1px #dddddd;
-}
-
-.searchform .submit {
-    width:                  28px;
-    height:                 28px;
-    background:             url(http://dbarobin.com/images/searchicon.png) 0 -5px no-repeat;
-    overflow:               hidden;
-    border:                 none;
-    margin-left:            3px;
-}
-
-#post-0 .searchform {
-    position:               relative;
-    margin:                 30px 0;
-    width:                  90%;
-}
-
-#post-0 .searchform .field {
-    width:                  95%;
-    max-width:              100%;
-}
-
-.widget .searchform {
-    position:               relative;
-    top:                    0;
-    left:                   0;
-}
-
-.widget .submit {
-    display:                none;
-}
-
-.widget .searchform .field {
-    width:                  100%;
-    max-width:              300px;
-    background:             url(http://dbarobin.com/images/searchicon.png) right center no-repeat;
+  text-decoration: underline;
 }
