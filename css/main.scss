@@ -3,10 +3,8 @@
 ---
 @charset "utf-8";
 
-
-
 // Our variables
-$base-font-family: 'Lato', 'Open Sans', Helvetica, Arial, sans-serif !important;
+$base-font-family: "Open Sans", "Helvetica", "Arial", sans-serif !important;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.6em;
@@ -28,13 +26,11 @@ $code-font-color:  #eee;
 
 
 // Width of the content area
-$content-width:    960px;
-$page-width:       1000px;
+$content-width:    810px;
+$page-width:       850px;
 
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
+$on-palm:          550px;
+$on-laptop:        750px;
 
 // Using media queries with like this:
 // @include media-query($on-palm) {
@@ -44,20 +40,17 @@ $on-laptop:        800px;
 //     }
 // }
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+  @media screen and (max-width: $device) {
+	@content;
+  }
 }
-
-
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "_syntax-highlighting-native" // "syntax-highlighting"
+"base",
+"layout",
+"_syntax-highlighting-native" // "syntax-highlighting"
 ;
 
-@import url('http://fonts.googleapis.com/css?family=Open+Sans');
-@import url('http://fonts.googleapis.com/css?family=Lato');
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+// Change to link attribute at head.html
+// @import url('fonts-open-sans.css');
