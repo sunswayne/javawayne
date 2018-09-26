@@ -1,8 +1,8 @@
 ### Site info.
-title: 孙少伟的博客
+title: Wayne's Blog
 tagline: A man always chasing freedom
 author: Wayne Sun
-email: blockxyz@gmail.com
+email: sswxysswxy@163.com
 description: 
 keywords: "Writing, Reading, Muisc"
 # url: "https://waynesun.xyz" # The base hostname & protocol for your site
@@ -14,7 +14,7 @@ encoding: UTF-8
 ### Personal info and site tools info.
 twitter_username: waynesun
 github_username:  sunswayne
-# disqus_shortname: dbarobin
+# disqus_shortname: waynesun
 favicon:     "/images/favicon.ico"
 aboutme: Robin Wen, Quest for Truth.
 aboutme_photo: "/images/wentasy.png"
