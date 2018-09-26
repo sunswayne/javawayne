@@ -1,6 +1,6 @@
 # Blog
 
-Personal blog, see at: [https://dbarobin.com](https://dbarobin.com).
+Personal blog, see at: [http://waynesun.xyz](http://waynesun.xyz).
 
 Powered by [Jekyll](https://jekyllrb.com) based on [freshman21](https://github.com/yulijia/freshman21). Thanks [Lijia Yu](https://github.com/yulijia).
 
@@ -39,7 +39,7 @@ Installation via git clone or download this repo.
 
 ## Preview
 
-![Screenshots of dbarobin.com at 2017.02.26](https://dbarobin.com/images/dbarobin.com.screenshots.170226.png)
+![Screenshots of waynesun.xyz at 2017.02.26](http://waynesun.xyz/images/waynesun.xyz.screenshots.170226.png)
 
 ## Contact
 
