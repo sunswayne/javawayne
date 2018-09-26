@@ -5,8 +5,8 @@ author: Wayne Sun
 email: sswxysswxy@163.com
 description: 
 keywords: "Writing, Reading, Muisc"
-# url: "http://waynesun.xyz" # The base hostname & protocol for your site
-url: "http://waynesun.xyz" # The base hostname & protocol for your site
+# url: "https://waynesun.xyz" # The base hostname & protocol for your site
+url: "https://waynesun.xyz" # The base hostname & protocol for your site
 enforce_ssl: "waynesun.xyz" # The base hostname & protocol for your site
 locale: en_US
 encoding: UTF-8
