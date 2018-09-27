@@ -16,7 +16,7 @@ title: About this blog
 
 ## 相关网站 ##
 
-* <a href="http://waynesun.xyz/about/" target="_blank"><img src="http://i.imgur.com/i2rzbE6.png" title="Wayne Sun's AboutMe" height="16px" width="16px" border="0" alt="Wayne Sun's AboutMe" /></a>
+* <a href="https://waynesun.xyz/about/" target="_blank"><img src="http://i.imgur.com/i2rzbE6.png" title="Wayne Sun's AboutMe" height="16px" width="16px" border="0" alt="Wayne Sun's AboutMe" /></a>
 
 ## 联系方式 ##
 
