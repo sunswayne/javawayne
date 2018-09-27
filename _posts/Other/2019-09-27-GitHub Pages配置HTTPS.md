@@ -47,6 +47,8 @@ tags:
 
 不得不说国外的客服确实效率，不到20分钟，官方客服发邮件告知我需要配置以上4个IP到DNS记录，这和网上一部分人的说法相同。事实证明其实并没有那么麻烦，只要你配置了CNAME记录，就会自动将你的域名解析到这几个dns，并生成对应的4条A记录。
 
+![github_ssl_cname](https://i.loli.net/2018/09/27/5bac51ac4bd7b.png)
+
 ``` bash
 Sun:~ Wayne$ dig waynesun.xyz
 
@@ -74,18 +76,14 @@ sunswayne.github.io.	3202	IN	A	185.199.108.153
 ;; MSG SIZE  rcvd: 138
 ```
 
-像这样就OK了。
-
-只是因为笔者在此之前配置的是A记录，直接ping了sunswayne.github.io取得IP，再配置到了DNS记录值，这样虽然可行，但是在配置CNAME记录时会警告我域名没有正确解析到github.io，事实证明CNAME域名解析才是王道。
-
-![github_ssl_cname](https://i.loli.net/2018/09/27/5bac51ac4bd7b.png)
+像这样就OK了，只是因为笔者在此之前配置的是A记录，直接ping了sunswayne.github.io取得IP，再配置到了DNS记录值，这样虽然可行，但是在配置CNAME记录时会警告我域名没有正确解析到github.io，事实证明CNAME域名解析才是王道。
 
 ## 开启HTTPS访问 ##
 
-当CNAME正常解析时，笔者再次刷新GitHub配置页面就会发现这里已经可以勾选了，请义无反顾的勾上她。
+当CNAME记录正常解析时，笔者再次刷新GitHub配置页面就会发现这里已经可以勾选了，请义无反顾的勾上她。
 
 ![github_ssl_enforce_https](https://i.loli.net/2018/09/27/5bac62293e8dd.png)
 
-如果显示无效的ssl证书，请关闭浏览器并重新打开，一切都明朗了。
+访问网站，如果显示无效的ssl证书，请关闭浏览器并重新打开，一切都明朗了。
 
-![github_ssl_cer](https://i.loli.net/2018/09/27/5bac553b5c831.png)
+![github_ssl_cer](https://i.loli.net/2018/09/27/5bac798911e5c.png)
