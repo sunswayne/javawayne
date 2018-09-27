@@ -18,7 +18,7 @@ tags:
 ![github_ssl_ask](https://i.loli.net/2018/09/27/5bac514b17bec.png)
 
 客服告诉我需要配置以下4个ip到dns记录，这和网上一部分人的说法相同，事实上经我试验，其实并没有那么麻烦，只要你配置了CNAME记录，就会自动将你的域名解析到以下4个dns。
-![github_ssl_dig](https://i.loli.net/2018/09/27/5bac54748a0af.png)
+![github_ssl_dig](https://i.loli.net/2018/09/27/5bac553b5c831.png)
 像这样就OK了。
 
 而笔者在此之前配置的是A记录，直接ping了sunswayne.github.io获得IP，再配置到了DNS记录值，这样虽然可行，但是在配置CNAME记录时会警告我域名没有正确解析到github.io。
@@ -28,4 +28,4 @@ tags:
 ![github_ssl_enforce_https](https://i.loli.net/2018/09/27/5bac51ac68fb3.png)
 
 这里Github还要和我开个玩笑，我虽然看到这激动人心的绿色字体，告知我已经成功配置了https并可以访问，但当我进入页面的时候，竟然告诉我无效的ssl证书？然而这并不会扰乱我的清晰的思路，事实证明你大爷终究是你大爷，当我关闭chrome打开safari进入网站，一切都明朗了，那骚气的小绿标赫然呈现在我的面前。
-![github_ssl_cer](https://i.loli.net/2018/09/27/5bac547471f04.png)
+![github_ssl_cer](https://i.loli.net/2018/09/27/5bac553b4c18d.png)
