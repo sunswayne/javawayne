@@ -47,6 +47,7 @@ sunswayne.github.io.	3202	IN	A	185.199.108.153
 ;; SERVER: 202.98.96.68#53(202.98.96.68)
 ;; WHEN: Thu Sep 27 10:14:58 CST 2018
 ;; MSG SIZE  rcvd: 138
+```
 
 像这样就OK了。
 
