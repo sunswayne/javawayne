@@ -12,10 +12,10 @@ tags:
 
 `文/孙少伟`
 
-最近听说GitHub Pages支持了自己的HTTPS服务，就想着把很久之前搭建的JekyII个人博客换成HTTPS访问，由于之前用的Cloud Flare免费的SSL，总感觉访问速度受到了限制（可能是幻觉），就去掉了，这次看看Github自带的Let's Encrypt证书效果如何，虽然免费版限期一年，但也很不错了，操作简单省时省力，比去搞什么第三方SSL要好得多。
+最近听说GitHub Pages支持了自己的HTTPS服务，就想着把很久之前搭建的JekyII个人博客换成HTTPS访问，由于之前用的Cloud Flare免费的SSL，总感觉访问速度受到了限制（可能是幻觉），这次看看Github自带的Let's Encrypt证书效果如何，虽然免费版限期一年，但也很不错了，操作简单省时省力，比去搞什么第三方SSL要好得多。
 
 ## CNAME域名解析 ##
-
+---
 起初，笔者也遇到了一个大家先前都遇到的问题，就是Enforce HTTPS始终无法勾选。网上查了一下，众说纷纭。根据我的经验，干脆直接问客服。 
 > GiHub在线提问 <a href="https://github.com/contact" target="_blank">drop me a line</a>
 
@@ -79,7 +79,7 @@ sunswayne.github.io.	3202	IN	A	185.199.108.153
 像这样就OK了，只是因为笔者在此之前配置的是A记录，直接ping了sunswayne.github.io取得IP，再配置到了DNS记录值，这样虽然可行，但是在配置CNAME记录时会警告我域名没有正确解析到github.io，事实证明CNAME域名解析才是王道。
 
 ## 开启HTTPS访问 ##
-
+---
 当CNAME记录正常解析时，笔者再次刷新GitHub配置页面就会发现这里已经可以勾选了，请义无反顾的勾上她。
 
 ![github_ssl_enforce_https](https://i.loli.net/2018/09/27/5bac62293e8dd.png)
