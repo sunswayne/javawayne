@@ -12,8 +12,6 @@ tags:
 
 `文/孙少伟`
 
-## GitHub Pages配置HTTPS ##
-
 最近听说GitHub Pages支持了自己的HTTPS服务，就想着把很久之前搭建的JekyII个人博客换成HTTPS访问，由于之前用的Cloud Flare免费的SSL，总感觉访问速度受到了限制（可能是幻觉），就去掉了，这次看看Github自带的Let's Encrypt证书效果如何，虽然免费版限期一年，但也很不错了，操作简单省时省力，比去搞什么第三方SSL要好得多。
 
 ## CNAME域名解析 ##
