@@ -4,7 +4,7 @@ author: Wayne Sun
 layout: post
 title: GitHub Pages配置HTTPS
 category: Other
-summary: 最近听说pages支持了自己的https服务，就想着把很久之前搭建的jekyII个人博客换成https访问，由于之前用的cloudflare免费的ssl，总感觉访问速度受到了限制（可能是幻觉），就去掉了，这次看看Github自带的Let's Encrypt证书效果如何。
+summary: 最近听说GitHub Pages支持了自己的HTTPS服务，就想着把很久之前搭建的JekyII个人博客换成HTTPS访问，由于之前用的Cloud Flare免费的SSL，总感觉访问速度受到了限制（可能是幻觉），就去掉了，这次看看Github自带的Let's Encrypt证书效果如何。
 tags:
   - GitHub Pages
   - HTTPS
@@ -12,21 +12,42 @@ tags:
 
 `文/孙少伟`
 
-## 起源 ##
+## GitHub Pages配置HTTPS ##
 
-最近听说github pages支持了自己的https服务，就想着把很久之前搭建的jekyII个人博客换成https访问，由于之前用的cloudflare免费的ssl，总感觉访问速度受到了限制（可能是幻觉），就去掉了，这次看看Github自带的Let's Encrypt证书效果如何（这名字也是够了，不过我喜欢），虽然免费版限期一年，但也很不错了，操作简单省时省力，比去搞什么第三方ssl要好得多。
-
-初体验下来，嗯，真香。
-
-## 联系客服 ##
-
-起初，我遇到了一个大家先前都遇到的问题，就是Enforce无法勾选，网上查了一下，众说纷纭，根据我的经验，干脆直接问客服。 <a href="https://github.com/contact" target="_blank">drop me a line</a>
-
-![github_ssl_ask](https://i.loli.net/2018/09/27/5bac514b17bec.png)
+最近听说GitHub Pages支持了自己的HTTPS服务，就想着把很久之前搭建的JekyII个人博客换成HTTPS访问，由于之前用的Cloud Flare免费的SSL，总感觉访问速度受到了限制（可能是幻觉），就去掉了，这次看看Github自带的Let's Encrypt证书效果如何，虽然免费版限期一年，但也很不错了，操作简单省时省力，比去搞什么第三方SSL要好得多。
 
 ## CNAME域名解析 ##
 
-不得不说国外的客服就是效率，不到20分钟，客服发邮件告诉我需要配置以下4个ip到dns记录，这和网上一部分人的说法相同，事实上经我试验，其实并没有那么麻烦，只要你配置了CNAME记录，就会自动将你的域名解析到以下4个dns。
+起初，笔者也遇到了一个大家先前都遇到的问题，就是Enforce HTTPS始终无法勾选。网上查了一下，众说纷纭。根据我的经验，干脆直接问客服。 
+> GiHub在线提问 <a href="https://github.com/contact" target="_blank">drop me a line</a>
+
+	Hi Sun,
+
+	Thanks for writing in! I took a look and it appears that your custom domain is set up using our old A record IPs. We recently made some changes to our Pages service that included some new IPs.
+
+	You'll need to remove your existing A records, and replace them with at least one A record that points to one of the following IP addresses:
+
+	185.199.108.153
+	185.199.109.153
+	185.199.110.153
+	185.199.111.153
+
+	Optionally, you can create additional A records that point to the other IP addresses from the list. Additional records essentially act as a backup in case of DNS or CDN issues, so having at least two is best practice, though your site will still function with just one.
+
+	If you'd also like to generate a free HTTPS certificate for your site, once you've replaced the A records, you'll need to visit your repository's settings page, which will kick off the process of provisioning an HTTPS certificate for your domain name.
+
+	Once your certificate has been provisioned, you'll then be able to enforce HTTPS by checking the "Enforce HTTPS" checkbox.
+
+	Bear in mind that it can take up for 24 hours for DNS changes to take full effect, and up to an hour for an HTTPS certificate to be requested, so if you follow these steps but are still having trouble, that's usually why.
+
+	If that doesn't work for you, please let us know.
+
+	All the best, 
+	Lesley
+
+	Find answers to common questions and learn with other GitHub users in our new GitHub Community Forum
+
+不得不说国外的客服确实效率，不到20分钟，官方客服发邮件告知我需要配置以上4个IP到DNS记录，这和网上一部分人的说法相同。事实证明其实并没有那么麻烦，只要你配置了CNAME记录，就会自动将你的域名解析到这几个dns，并生成对应的4条A记录。
 
 ``` bash
 Sun:~ Wayne$ dig waynesun.xyz
@@ -57,8 +78,7 @@ sunswayne.github.io.	3202	IN	A	185.199.108.153
 
 像这样就OK了。
 
-**解决问题**
-而笔者在此之前配置的是A记录，直接ping了sunswayne.github.io获得IP，再配置到了DNS记录值，这样虽然可行，但是在配置CNAME记录时会警告我域名没有正确解析到github.io。
+只是因为笔者在此之前配置的是A记录，直接ping了sunswayne.github.io取得IP，再配置到了DNS记录值，这样虽然可行，但是在配置CNAME记录时会警告我域名没有正确解析到github.io，事实证明CNAME域名解析才是王道。
 
 ![github_ssl_cname](https://i.loli.net/2018/09/27/5bac51ac4bd7b.png)
 
