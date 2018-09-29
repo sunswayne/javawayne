@@ -49,3 +49,40 @@ external_url "http://xxx.xxx.xxx.xxx"
 docker restart gitlab
 ```
 ## 部署Jenkins ##
+
+1.拉取镜像：
+``` bash
+sudo docker pull jenkins
+```
+
+2.创建Dockerfile：
+``` bash
+FROM jenkins
+USER root
+RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/* 
+RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+USER jenkins
+```
+
+3.构建Jenkins（Dockerfile所在目录）
+``` bash
+docker build -t jenkins:1.0 .
+```
+
+4.启动Jenkins
+``` bash
+docker run -d -p 80:8080 jenkins:1.0
+```
+
+### 插件 ###
+- Java
+- Git
+- Maven
+
+5.取消认证
+
+取消勾选Enable authentication for '/project' end-point
+
+6.k8s配置
+https://i.loli.net/2018/09/29/5baf258fdfc20.png
+
