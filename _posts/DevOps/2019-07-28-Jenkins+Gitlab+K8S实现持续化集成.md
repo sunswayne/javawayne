@@ -3,11 +3,11 @@ published: true
 author: Wayne Sun
 layout: post
 title: Jenkins+Gitlab+K8S实现持续化集成
-category: Other
-summary: 最近听说GitHub Pages支持了自己的HTTPS服务，就想着把很久之前搭建的JekyII个人博客换成HTTPS访问，由于之前用的Cloud Flare免费的SSL，总感觉访问速度受到了限制（可能是幻觉），就去掉了，这次看看Github自带的Let's Encrypt证书效果如何。
+category: DevOps
+summary: 自从公司项目大量采用了docker微服务架构，本地编译打包，再加上手动部署k8s已经难以满足我们的需求，毕竟这已经浪费了我们太多的时间。所以研究着如何把Jenkins搭建起来，从此跟随潮流，走上<tt>DevOps</tt>的康庄大道。
 tags:
-  - GitHub Pages
-  - HTTPS
+  - docker
+  - jenkins
 ---
 
 `文/孙少伟`
@@ -49,7 +49,7 @@ external_url "http://xxx.xxx.xxx.xxx"
 docker restart gitlab
 ```
 ## 部署Jenkins ##
-
+---
 1.拉取镜像：
 ``` bash
 sudo docker pull jenkins
@@ -84,5 +84,7 @@ docker run -d -p 80:8080 jenkins:1.0
 取消勾选Enable authentication for '/project' end-point
 
 6.k8s配置
-https://i.loli.net/2018/09/29/5baf258fdfc20.png
+
+![github_devops_k8s](https://i.loli.net/2018/09/29/5baf258fdfc20.png)
+
 
