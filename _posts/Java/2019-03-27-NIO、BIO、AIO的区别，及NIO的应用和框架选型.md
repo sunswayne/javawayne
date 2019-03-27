@@ -13,14 +13,14 @@ tags:
 
 `文/孙少伟`
 
-AIO、BIO、NIO的区别
+**AIO、BIO、NIO的区别**
 
 IO模型主要分类：
- 同步(synchronous) IO和异步(asynchronous) IO
- 阻塞(blocking) IO和非阻塞(non-blocking)IO
- 同步阻塞(blocking-IO)简称BIO
- 同步非阻塞(non-blocking-IO)简称NIO
- 异步非阻塞(synchronous-non-blocking-IO)简称AIO
+* 同步(synchronous) IO和异步(asynchronous) IO
+* 阻塞(blocking) IO和非阻塞(non-blocking)IO
+* 同步阻塞(blocking-IO)简称BIO
+* 同步非阻塞(non-blocking-IO)简称NIO
+* 异步非阻塞(synchronous-non-blocking-IO)简称AIO
 1.BIO (同步阻塞I/O模式)
 数据的读取写入必须阻塞在一个线程内等待其完成。
 这里使用那个经典的烧开水例子，这里假设一个烧开水的场景，有一排水壶在烧开水，BIO的工作模式就是， 叫一个线程停留在一个水壶那，直到这个水壶烧开，才去处理下一个水壶。但是实际上线程在等待水壶烧开的时间段什么都没有做。
@@ -29,7 +29,11 @@ IO模型主要分类：
 3.AIO （异步非阻塞I/O模型）
 异步非阻塞与同步非阻塞的区别在哪里？异步非阻塞无需一个线程去轮询所有IO操作的状态改变，在相应的状态改变后，系统会通知对应的线程来处理。对应到烧开水中就是，为每个水壶上面装了一个开关，水烧开之后，水壶会自动通知我水烧开了。
 4.IO与NIO区别：
-
+类型 | IO |  NIO  
+-|-|-
+面向对象 | 流 | 缓冲区 |
+是否阻塞 | 阻塞 | 非阻塞 |
+有无选择器 | 无 | 有 |
 5.同步与异步的区别：
 同步：发送一个请求，等待返回，再发送下一个请求，同步可以避免出现死锁，脏读的发生。
 异步：发送一个请求，不等待返回，随时可以再发送下一个请求，可以提高效率，保证并发。
@@ -41,7 +45,8 @@ NIO是非阻塞式的。当线程从某通道进行读写数据时，若没有�
  BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，并发局限于应用中，JDK1.4以前的唯一选择。
  NIO方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器，并发局限于应用中，编程比较复杂。
  AIO方式使用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用OS参与并发操作，编程比较复杂，JDK7开始支持。
-NIO的3个核心概念
+
+**NIO的3个核心概念**
 
 NIO重点是把Channel（通道），Buffer（缓冲区），Selector（选择器）三个类之间的关系弄清楚。
 1.缓冲区Buffer
@@ -79,7 +84,7 @@ socketChannel.register(selector, SelectionKey.OP_READ);
  OP_WRITE: 写入就绪，socketChannel使用
  OP_CONNECT: 连接就绪，socketChannel使用
 
-NIO的应用和框架
+**NIO的应用和框架**
 
 1.NIO的应用
 Java NIO成功的应用在了各种分布式、即时通信和中间件Java系统中，充分的证明了基于NIO构建的通信基础，是一种高效，且扩展性很强的通信架构。
