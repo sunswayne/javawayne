@@ -18,16 +18,15 @@ tags:
 
 `文/孙少伟`
 
-## AIO、BIO、NIO的区别 ##
+## 一 AIO、BIO、NIO的区别 ##
 
 IO模型主要分类：
+
 * 同步(synchronous) IO和异步(asynchronous) IO
 * 阻塞(blocking) IO和非阻塞(non-blocking)IO
 * 同步阻塞(blocking-IO)简称BIO
 * 同步非阻塞(non-blocking-IO)简称NIO
 * 异步非阻塞(synchronous-non-blocking-IO)简称AIO
-
-## 一 优势 ###
 
 ### 1.1 BIO (同步阻塞I/O模式) ###
 
