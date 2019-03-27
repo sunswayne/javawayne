@@ -3,7 +3,7 @@ published: true
 author: Wayne Sun
 layout: post
 title: NIO、BIO、AIO的区别，及NIO的应用和框架选型
-category: JavaSE
+category: JavaEE
 summary: 谈到并发编程就不得不提到NIO，以及相关的Java NIO框架Netty等，并且在很多面试中也经常提到NIO和AIO、同步和异步、阻塞和非阻塞等的区别。我先简短介绍下几个NIO相关的概念，然后再谈NIO重点掌握内容，以及Java NIO框架选型。
 tags:
   - NIO
@@ -67,6 +67,7 @@ IO模型主要分类：
 * NIO方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器，并发局限于应用中，编程比较复杂。
 * AIO方式使用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用OS参与并发操作，编程比较复杂，JDK7开始支持。
 
+
 ## 二 NIO的3个核心概念 ##
 
 NIO重点是把Channel（通道），Buffer（缓冲区），Selector（选择器）三个类之间的关系弄清楚。
@@ -124,6 +125,7 @@ Selector选择器可以监听多个Channel通道感兴趣的事情(read、write�
 * OP_READ: 读取就绪，socketChannel使用
 * OP_WRITE: 写入就绪，socketChannel使用
 * OP_CONNECT: 连接就绪，socketChannel使用
+
 
 ## 三 NIO的应用和框架 ##
 
