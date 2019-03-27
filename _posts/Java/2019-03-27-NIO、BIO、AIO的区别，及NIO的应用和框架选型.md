@@ -2,13 +2,13 @@
 published: true
 author: Wayne Sun
 layout: post
-title: 深入理解ArrayList的实现原理
+title: NIO、BIO、AIO的区别，及NIO的应用和框架选型
 category: JavaSE
-summary: 作为<tt>Java</tt>中常用的容器之一，<tt>ArrayList</tt>无疑占据了相当大的比重，也是我们学习<tt>Java</tt>以来接触最多的数据集合，相信大家对它的使用早就达到了可以信手拈来的程度。然而，当我们潇洒的调用<tt>add()</tt>进行添加操作的时候，是否考虑过<tt>ArrayList</tt>的容量问题。当我们调用<tt>get()</tt>获取元素时，底层又是如何获得具体的对象值，<tt>ArrayList</tt>的使用场景与其他集合究竟有什么异同？
+summary: 谈到并发编程就不得不提到NIO，以及相关的Java NIO框架Netty等，并且在很多面试中也经常提到NIO和AIO、同步和异步、阻塞和非阻塞等的区别。我先简短介绍下几个NIO相关的概念，然后再谈NIO重点掌握内容，以及Java NIO框架选型。
 tags:
-  - Java
-  - ArrayList
-  - 自动扩容
+  - NIO
+  - 同步
+  - Channel
 ---
 
 `文/孙少伟`
