@@ -108,18 +108,18 @@ Channel有四种实现：
 
 Selector选择器可以监听多个Channel通道感兴趣的事情(read、write、accept(服务端接收)、connect，实现一个线程管理多个Channel，节省线程切换上下文的资源消耗。Selector只能管理非阻塞的通道，FileChannel是阻塞的，无法管理。
 
-** 关键对象 **
+**关键对象**
 
 * Selector：选择器对象，通道注册、通道监听对象和Selector相关。
 * SelectorKey：通道监听关键字，通过它来监听通道状态。
 
-** 监听注册 **
+**监听注册**
 
 监听注册在Selector
 
 >socketChannel.register(selector, SelectionKey.OP_READ);
 
-** 监听事件 **
+**监听事件**
 
 * OP_ACCEPT: 接收就绪，serviceSocketChannel使用的
 * OP_READ: 读取就绪，socketChannel使用
