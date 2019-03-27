@@ -2,7 +2,7 @@
 published: true
 author: Wayne Sun
 layout: post
-title: NIO、BIO、AIO的区别，及NIO的应用和框架选型
+title: BIO、NIO、AIO的区别，及NIO的应用和框架选型
 category: JavaEE
 summary: 谈到并发编程就不得不提到NIO，以及相关的Java NIO框架Netty等，并且在很多面试中也经常提到NIO和AIO、同步和异步、阻塞和非阻塞等的区别。我先简短介绍下几个NIO相关的概念，然后再谈NIO重点掌握内容，以及Java NIO框架选型。
 tags:
