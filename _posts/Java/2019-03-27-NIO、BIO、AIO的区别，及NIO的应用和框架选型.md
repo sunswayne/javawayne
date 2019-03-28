@@ -28,7 +28,7 @@ IO模型主要分类：
 * 同步非阻塞(non-blocking-IO)简称NIO
 * 异步非阻塞(synchronous-non-blocking-IO)简称AIO
 
-### 1.1、BIO (同步阻塞I/O模式) ###
+### 1.1、BIO（同步阻塞I/O模式） ###
 
 数据的读取写入必须阻塞在一个线程内等待其完成。
 
